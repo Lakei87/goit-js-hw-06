@@ -14,9 +14,18 @@ const images = [
 ];
 
 const galleryRef = document.querySelector(".gallery")
+const itemsAndImagesForGallery = images
+  .map(image => { return `<li><img src="${image.url}" alt="${image.alt}"></li>` })
+  .join("")
+  
+galleryRef.insertAdjacentHTML("afterbegin", itemsAndImagesForGallery)
+  
+const itemRef = galleryRef.querySelectorAll("li")
+const imgRef = galleryRef.querySelectorAll("img")
 
-const test = images.map(image => {
-  return `<li><img src="${image.url}" alt="${image.alt}"></li>`
-}).join("")
-
-galleryRef.insertAdjacentHTML("afterbegin", test)
+itemRef.forEach(element => {
+  element.classList.add("gallery__item")
+})
+imgRef.forEach(element => {
+  element.classList.add("gallery__img")
+})
