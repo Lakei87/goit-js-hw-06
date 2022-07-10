@@ -7,6 +7,7 @@ const buttonRef = document.querySelector(".change-color")
 const colorRef = document.querySelector(".color")
 
 buttonRef.addEventListener("click", event => {
-  bodyRef.style.backgroundColor = getRandomHexColor()
-  colorRef.textContent = getRandomHexColor()
+  const rendomColor = getRandomHexColor()
+  bodyRef.style.backgroundColor = rendomColor
+  colorRef.textContent = rendomColor
 })

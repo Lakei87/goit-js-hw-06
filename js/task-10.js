@@ -7,19 +7,20 @@ const btnCreateRef = document.querySelector("button[data-create]")
 const btnDestroyRef = document.querySelector("button[data-destroy]")
 const mainBoxRef = document.querySelector("#boxes")
 
-btnCreateRef.addEventListener("click", createBoxes)
+btnCreateRef.addEventListener("click", event => {
+  createBoxes(numberRef.value)
+})
 btnDestroyRef.addEventListener("click", destroyBoxes)
 addEventListener("keydown", event => {
   const { code } = event
   if (code === "Enter" || code === "NumpadEnter") {
-    createBoxes()
+    createBoxes(numberRef.value)
     return
   }
 })
 
 // ===============function createBoxes()==============
 function createBoxes(amoumt) {
-  amoumt = numberRef.value
   mainBoxRef.innerHTML = ""
   const boxesArrayToCreate = []
   
